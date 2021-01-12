@@ -62,7 +62,9 @@ public class GameManager  {
     private void checkHit() {
         for (int i = 0; i < generatorEnemy.enemyArrayList.size(); i++) {
             if(CollisionDetect.collisionDetect(mainPlayer,generatorEnemy.enemyArrayList.get(i))) {
-                UtilResource.hit.play(1);
+                if(SettingsGame.sSoundOn) {
+                    UtilResource.hit.play(1);
+                }
                 mainPlayer.hitEnemy();
                 generatorEnemy.hitPlayer(generatorEnemy.enemyArrayList.get(i));
             }
