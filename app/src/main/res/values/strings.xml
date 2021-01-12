@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">My Native Game</string>
+
+    <!--MainMenuScene-->
+    <string name="txt">My Native Game</string>
+    <string name="new_game">New Game</string>
+    <string name="settings">Settings</string>
+    <string name="results">Results</string>
+    <string name="exit_game">Exit Game</string>
+
+    <!--GameScene-->
+    <string name="gameScene_stateReady_ready">Вы готовы?</string>
+    <string name="gameScene_stateRunning_running">Сцена игры</string>
+
+    <!--HUD-->
+    <string name="hud_passedDisance">Пройдено: </string>
+    <string name="hud_currentSpeedPlayer">Скорость: </string>
+    <string name="hud_currentShieldsPlayer">Защита: </string>
+
+    <string name = "gameScene_stateGameOver_gameOver">Game Over</string>
+    <string name = "gameScene_stateGameOver_restart">Restart</string>
+    <string name = "gameScene_stateGameOver_exit">Exit</string>
+    <string name = "gameScene_stateGameOver_distance">Distance: </string>
+
+    <string name = "top_distance">Best scores</string>
+
+</resources>

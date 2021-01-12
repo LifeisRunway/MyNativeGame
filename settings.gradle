@@ -1,0 +1,3 @@
+include ':my_game_module'
+include ':app'
+rootProject.name = "My Native Game"
