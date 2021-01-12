@@ -18,7 +18,7 @@ public class LoaderTask extends AcyncTask<Void, Integer, Void> {
     return null;
   }
   
-  private void loaderAssets() {
+    private void loaderAssets() {
         loadTexture(mCoreFW.getGraphicsFW());
         loadSpritePlayer(mCoreFW.getGraphicsFW());
         loadSpriteEnemy(mCoreFW.getGraphicsFW());
@@ -27,6 +27,12 @@ public class LoaderTask extends AcyncTask<Void, Integer, Void> {
         loadSpritePlayerShieldsOn(mCoreFW.getGraphicsFW());
         loadGifts(mCoreFW.getGraphicsFW());
     }
+  
+  @Override
+  protected void onPostExecute(Void aVoid) {
+      super.onPostExecute(aVoid);
+      taskComplete.onComplete();
+  }
 
     private void loadOther(GraphicsFW graphicsFW) {
         UtilResource.shieldHitEnemy = graphicsFW.createSprite(UtilResource.textureAtlas, 0, 128, 64, 64);
