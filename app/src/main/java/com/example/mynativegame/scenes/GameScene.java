@@ -82,14 +82,20 @@ public class GameScene extends SceneFW {
         if(GameManager.gameOver) {
             gameState = GameState.GAMEOVER;
         }
+        if(coreFW.isPressedKeyBack()) {
+            gameState = GameState.PAUSE;
+            coreFW.setPressedKeyBack(false);
+        }
     }
 
     private void drawingStatePause() {
-
+        coreFW.getGraphicsFW().drawText("Pause", 350, 300, Color.GREEN, 50, null);
     }
 
     private void updateStatePause() {
-
+        if(coreFW.getTouchListenerFW().getTouchUp(0, sceneHeight, sceneWidth, sceneHeight)) {
+            gameState = GameState.RUNNING;
+        }
     }
 
     private void drawingStateGameOver() {
@@ -118,7 +124,9 @@ public class GameScene extends SceneFW {
 
     @Override
     public void resume() {
-        UtilResource.gameMusic.play(true, 0.5f);
+        if(SettingsGame.sMusicOn) {
+             UtilResource.gameMusic.play(true, 0.5f);
+        }
     }
 
     @Override
