@@ -26,6 +26,7 @@ public class GameManager  {
     MainPlayer mainPlayer;
     GeneratorBackground generatorBackground;
     GeneratorEnemy generatorEnemy;
+    GeneratorGifts generatorGifts;
     HUD hud;
 
     public GameManager(CoreFW coreFW, int sceneWidth, int sceneHeight) {
@@ -38,13 +39,15 @@ public class GameManager  {
         mainPlayer = new MainPlayer(coreFW, maxScreenX, maxScreenY, minScreenY);
         generatorBackground = new GeneratorBackground(sceneWidth, sceneHeight, minScreenY);
         generatorEnemy = new GeneratorEnemy(sceneWidth,sceneHeight,minScreenY);
+        generatorGifts = new GeneratorGifts(sceneWidth, sceneHeight, minScreenY);
     }
 
     public void update() {
         generatorBackground.update(mainPlayer.getSpeed());
         mainPlayer.update();
         generatorEnemy.update(mainPlayer.getSpeed());
-
+        generatorGifts.update(mainPlayer.getSpeed());
+        
         passedDistance += mainPlayer.getSpeed();
         currentSpeedPlayer = (int) mainPlayer.getSpeed() * 60;
         currentShieldsPlayer = mainPlayer.getShieldsPlayer();
@@ -63,13 +66,22 @@ public class GameManager  {
                 generatorEnemy.hitPlayer(generatorEnemy.enemyArrayList.get(i));
             }
         }
+        if(CollisionDetect.CollisionDetect(mainPlayer, generatorGifts.getProtector())) {
+            hitPlayerWithProtector();
+        }
     }
 
     public void drawing(CoreFW coreFW, GraphicsFW graphicsFW) {
         mainPlayer.drawing(graphicsFW);
         generatorBackground.drawing(graphicsFW);
+        generatorGifts.drawing(graphicsFW);
         generatorEnemy.drawing(graphicsFW);
         hud.drawing(graphicsFW);
+    }
+    
+    public void hitPlayerWithProtector() {
+        mainPlayer.hitProtector();    
+        generatorGifts.hitProtectorWithPlayer();
     }
 
     public int getPassedDistance() {
