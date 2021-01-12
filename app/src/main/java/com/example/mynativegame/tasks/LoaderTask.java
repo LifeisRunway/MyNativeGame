@@ -48,6 +48,7 @@ public class LoaderTask extends AcyncTask<Void, Integer, Void> {
 
     private void loadOther(GraphicsFW graphicsFW) {
         UtilResource.shieldHitEnemy = graphicsFW.createSprite(UtilResource.textureAtlas, 0, 128, 64, 64);
+        SettingsGame.loadSettings(mCoreFW);
     }
 
     private void loadAudio(CoreFW coreFW) {
