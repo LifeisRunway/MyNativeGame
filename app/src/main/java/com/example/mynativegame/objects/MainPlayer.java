@@ -185,7 +185,7 @@ public class MainPlayer extends ObjectFW {
         timerOnShieldHit.startTimer();
     }
     
-    public boolean isShieldsOn() {
+    public static boolean isShieldsOn() {
         return shieldsOn;
     }
 }
