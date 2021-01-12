@@ -23,7 +23,8 @@ public class MainPlayer extends ObjectFW {
     AnimationGameFW animPlayerShieldsOnBoost;
 
     UtilTimerDelay timerOnShieldHit;
-    UtilTimerDelay timerOnGameOver;;
+    UtilTimerDelay timerOnGameOver;
+    UtilTimerDelay timerShieldsOn;
 
     boolean hitEnemy;
     boolean isGameOver;
@@ -45,7 +46,8 @@ public class MainPlayer extends ObjectFW {
         shieldsOn = false;
         timerOnShieldHit = new UtilTimerDelay();
         timerOnGameOver = new UtilTimerDelay();
-
+        timerShieldsOn = new UtilTimerDelay();
+        
         radius = UtilResource.spritePlayer.get(0).getHeight() / 4;
 
         this.coreFW = coreFW;
@@ -96,6 +98,11 @@ public class MainPlayer extends ObjectFW {
         if(y > maxScreenY) {
             y = maxScreenY;
         }
+        
+        if(timerShieldsOn.timerDelay(5)) {
+            shieldsOn = false;
+        }
+        
         if(boosting) {
             if(shieldsOn) {
                 animPlayerShieldsOnBoost.runAnimation();
@@ -187,5 +194,10 @@ public class MainPlayer extends ObjectFW {
     
     public static boolean isShieldsOn() {
         return shieldsOn;
+    }
+    
+    public void hitProtector() {
+        shieldsOn = true;
+        timerShieldsOn.startTimer();
     }
 }
