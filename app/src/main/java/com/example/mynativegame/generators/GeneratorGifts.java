@@ -35,4 +35,8 @@ public class GeneratorGifts {
        protector.drawing(graphicsFW);
   }
   
+  public Protector getProtector() {
+    return protector;
+  }
+  
 }
