@@ -23,6 +23,7 @@ public class Protector extends ObjectFW {
         hitBox = new Rect(x, y,
                 UtilResource.spriteProtector.get(0).getWidth(),
                 UtilResource.spriteProtector.get(0).getHeight());
+        animProtector = new AnimationFW(GameManager.SPEED_ANIMATION, UtilResource.spriteProtector);
     }
 
     public void update(float speedPlayer) {
