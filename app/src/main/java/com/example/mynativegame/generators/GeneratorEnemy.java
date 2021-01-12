@@ -25,7 +25,7 @@ public class GeneratorEnemy {
     public void update(float speedPlayer) {
 
         if(enemyArrayList.size() < 3) {
-            addEnemy(speedPlayer, 3);
+            addEnemy(speedPlayer, 1);
         }
 
         for(int i = 0; i < enemyArrayList.size(); i++) {
