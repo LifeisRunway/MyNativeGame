@@ -27,7 +27,7 @@ public class MainPlayer extends ObjectFW {
 
     boolean hitEnemy;
     boolean isGameOver;
-    boolean shieldsOn;
+    static boolean shieldsOn;
 
     CoreFW coreFW;
 
