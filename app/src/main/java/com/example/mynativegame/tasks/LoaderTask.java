@@ -5,9 +5,11 @@ import android.os.AsyncTask;
 public class LoaderTask extends AcyncTask<Void, Integer, Void> {
   
   private CoreFW mCoreFW;
+  private TaskComplete mTaskComplete;
   
-  public LoaderTask (CoreFW coreFW) {
+  public LoaderTask (CoreFW coreFW, TaskComplete taskComplete) {
     mCoreFW = coreFW;
+    mTaskComplete = taskComplete;
   }
   
   @Override
