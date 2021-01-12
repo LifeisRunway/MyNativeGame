@@ -13,6 +13,12 @@ public class LoaderTask extends AcyncTask<Void, Integer, Void> {
   }
   
   @Override
+  protected void onProgressUpdate(Integer...values) {
+    super.onProgressUpdate(value);
+    LoaderResourceScene.setProgressLoader(values);
+  }
+  
+  @Override
   protected Void doInBackground(Void...voids) {
     loaderAssets();
     return null;
@@ -20,12 +26,18 @@ public class LoaderTask extends AcyncTask<Void, Integer, Void> {
   
     private void loaderAssets() {
         loadTexture(mCoreFW.getGraphicsFW());
+        publishProgress(50);
         loadSpritePlayer(mCoreFW.getGraphicsFW());
+        publishProgress(200);
         loadSpriteEnemy(mCoreFW.getGraphicsFW());
+        publishProgress(350);
         loadOther(mCoreFW.getGraphicsFW());
+        publishProgress(500);
         loadAudio(mCoreFW);
         loadSpritePlayerShieldsOn(mCoreFW.getGraphicsFW());
+        publishProgress(650);
         loadGifts(mCoreFW.getGraphicsFW());
+        publishProgress(800);
     }
   
   @Override
