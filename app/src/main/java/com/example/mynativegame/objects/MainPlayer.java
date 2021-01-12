@@ -184,4 +184,8 @@ public class MainPlayer extends ObjectFW {
         hitEnemy = true;
         timerOnShieldHit.startTimer();
     }
+    
+    public boolean isShieldsOn() {
+        return shieldsOn;
+    }
 }
