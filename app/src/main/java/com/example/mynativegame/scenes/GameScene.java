@@ -21,7 +21,9 @@ public class GameScene extends SceneFW {
         super(coreFW);
         gameState = GameState.READY;
         gameManager = new GameManager(coreFW, sceneWidth, sceneHeight);
-        UtilResource.gameMusic.play(true, 0.5f);
+        if(SettingsGame.sMusicOn) {
+             UtilResource.gameMusic.play(true, 0.5f);
+        }
     }
 
     @Override
