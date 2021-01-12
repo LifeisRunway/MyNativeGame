@@ -12,7 +12,10 @@ public class SettingsScene extends SceneFW {
     
     @Override
     public void update() {
-         
+         if(coreFW.isPerssedKeyBack()) {
+            coreFW.setPressedKeyBack(false);
+            coreFW.setScene(new MainMenuScene(coreFW));
+         }
     }
 
     @Override
@@ -23,8 +26,18 @@ public class SettingsScene extends SceneFW {
        coreFW.getGraphics().drawText("Music ", 250, 300, Color.GREEN, 30, null);
        coreFW.getGraphics().drawText("Sound ", 250, 350, Color.GREEN, 30, null);
        
-       coreFW.getGraphics().drawText("ON", 450, 300, Color.GREEN, 30, null);
-       coreFW.getGraphics().drawText("ON", 450, 350, Color.GREEN, 30, null);
+       if(SettingsGame.sMusicOn) {
+          coreFW.getGraphics().drawText("ON", 450, 300, Color.GREEN, 30, null);
+       } else {
+          coreFW.getGraphics().drawText("OFF", 450, 300, Color.RED, 30, null);
+       }
+       
+       if(SettingsGame.sSoundOn) {
+          coreFW.getGraphics().drawText("ON", 450, 350, Color.GREEN, 30, null);
+       } else {
+          coreFW.getGraphics().drawText("OFF", 450, 350, Color.RED, 30, null);
+       }
+              
     }
   
     @Override
