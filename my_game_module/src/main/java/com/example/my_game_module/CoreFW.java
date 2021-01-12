@@ -28,8 +28,9 @@ public class CoreFW extends AppCompatActivity {
     private float sceneWidth;
     private float sceneHeight;
 
-    private boolean stateOnPause ;
-    private boolean stateOnResume ;
+    private boolean stateOnPause;
+    private boolean stateOnResume;
+    private boolean mIsPressedKeyBack;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -52,7 +53,8 @@ public class CoreFW extends AppCompatActivity {
         touchListenerFW = new TouchListenerFW(loopFW, sceneWidth, sceneHeight);
 
         sceneFW = getStartScene();
-
+        
+        mIsPressedKeyBack = false;
         stateOnPause = false;
         stateOnResume = false;
         setContentView(loopFW);
@@ -93,6 +95,14 @@ public class CoreFW extends AppCompatActivity {
     }
 
     public TouchListenerFW getTouchListenerFW() {return touchListenerFW;}
+    
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK) {
+            mIsPressedKeyBack = true;
+            return true;
+        }
+        return false;
+    }
 
     public void setScene(SceneFW scene) {
         if(scene == null) {
@@ -111,5 +121,13 @@ public class CoreFW extends AppCompatActivity {
 
     public SceneFW getStartScene() {
         return sceneFW;
+    }
+    
+    public boolean isPressedKeyBack() {
+        return mIsPressedKeyBack;
+    }
+    
+    public void setPressedKeyBack(boolesn isPressed) {
+        mPressedKeyBack = isPressed;
     }
 }
