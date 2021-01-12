@@ -8,8 +8,11 @@ public class ExitScene extends SceneFW {
 
     @Override
     public void update() {
-        if(coreFW.getTouchListenerFW().getTouchUp(150, 250, 100,35)) {
-            
+        if(coreFW.getTouchListenerFW().getTouchUp(150, 250, 100, 35)) {
+            coreFW.finish();
+        }
+        if(coreFW.getTouchListenerFW().getTouchUp(150, 300, 100, 35)) {
+            coreFW.setScene(new MainMenuScene(coreFW));
         }
     }
 
