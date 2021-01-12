@@ -25,4 +25,5 @@ public class UtilResource {
     public static SoundFW hit;
     public static SoundFW explode;
     public static SoundFW touch;
+    public static Typeface mainMenuFont;
 }
