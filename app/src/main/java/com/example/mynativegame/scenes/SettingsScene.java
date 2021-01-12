@@ -17,12 +17,12 @@ public class SettingsScene extends SceneFW {
             coreFW.setScene(new MainMenuScene(coreFW));
          }
          
-        if(coreFW.getTouchListenerFW().getTouchUp(250, 350, 100, 30)) {
+        if(coreFW.getTouchListenerFW().getTouchUp(400, 350, 100, 30)) {
             SettingsGame.sSoundOn = !SettingsGame.sSoundOn;
             SettingsGame.sSoundOn.saveSettings(coreFW);
         }
         
-        if(coreFW.getTouchListenerFW().getTouchUp(250, 300, 100, 30)) {
+        if(coreFW.getTouchListenerFW().getTouchUp(400, 300, 100, 30)) {
             SettingsGame.sMusicOn = !SettingsGame.sMusicOn;
             SettingsGame.sMusicOn.saveSettings(coreFW);
         }
