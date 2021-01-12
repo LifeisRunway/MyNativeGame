@@ -131,9 +131,6 @@ public class GameScene extends SceneFW {
 
     @Override
     public void dispose() {
-        UtilResource.explode.dispose();
-        UtilResource.hit.dispose();
-        UtilResource.touch.dispose();
-        UtilResource.gameMusic.dispose();
+      
     }
 }
