@@ -45,6 +45,7 @@ public class LoaderAssets {
     }
 
     public void loadGifts(GraphicsFW graphicsFW) {
+        //Метод загружает бонусы (неуязвимость, щиты)
         UtilResource.spriteProtector = new ArrayList<>();
 
         UtilResource.spriteProtector.add(graphicsFW.createSprite(UtilResource.textureAtlasHeal, 0, 0, 16, 16));
