@@ -1,10 +1,10 @@
 package com.example.mynativegame.scenes
 
-public class LoaderResourceScene extends SceneGame {
+public class LoaderResourceScene extends SceneFW implements TaskComplete {
         
     public LoaderResourceScene(CoreFW coreFW) {
         super(coreFW);
-        LoaderTask loaderTask = new LoaderTask(coreFW);
+        LoaderTask loaderTask = new LoaderTask(coreFW, this);
         loaderTask.execute();
     }
     
@@ -32,5 +32,10 @@ public class LoaderResourceScene extends SceneGame {
     public void dispose() {
       
     }
-  
+    
+    @Override
+    public void onComplete() {
+        coreFW.setScene(new MainMenuScene(coreFW));
+    }
+    
 }
