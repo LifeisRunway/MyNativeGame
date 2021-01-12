@@ -39,4 +39,10 @@ public class GeneratorGifts {
     return protector;
   }
   
+  public void hitProtectorWithPlayer() {
+    protector = null;
+    protector = new Protector(maxScreenX, maxScreenY, minScreenY);
+    timerProtector.startTimer();
+  }
+  
 }
