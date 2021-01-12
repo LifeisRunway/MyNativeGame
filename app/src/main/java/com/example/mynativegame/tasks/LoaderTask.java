@@ -16,7 +16,7 @@ public class LoaderTask extends AcyncTask<Void, Integer, Void> {
     return null;
   }
   
-  public void loaderAssets() {
+  private void loaderAssets() {
         loadTexture(mCoreFW.getGraphicsFW());
         loadSpritePlayer(mCoreFW.getGraphicsFW());
         loadSpriteEnemy(mCoreFW.getGraphicsFW());
