@@ -8,6 +8,7 @@ import com.example.mynativegame.scenes.MainMenuScene;
 public class Main extends CoreFW {
 
     public SceneFW getStartScene() {
+        //TODO Сделать отдельный поток для loadAssets AsyncTask
         LoaderAssets loaderAssets = new LoaderAssets(this, this.getGraphicsFW());
         return new MainMenuScene(this);
     }
